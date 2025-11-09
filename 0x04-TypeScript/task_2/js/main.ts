@@ -58,8 +58,11 @@ export function executeWork(employee: Director | Teacher): string {
   }
 }
 
-// ALX-compatible teachClass function with inline string literal type
-export function teachClass(todayClass: "Math" | "History"): string {
+// ALX-compatible string literal type alias
+type Subjects = "Math" | "History";
+
+// teachClass function using the type alias
+export function teachClass(todayClass: Subjects): string {
   if (todayClass === "Math") {
     return "Teaching Math";
   } else if (todayClass === "History") {
