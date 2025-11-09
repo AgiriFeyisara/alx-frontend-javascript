@@ -61,7 +61,7 @@ export function executeWork(employee: Director | Teacher): string {
 // String literal type for subjects
 type Subjects = "Math" | "History";
 
-// teachClass function
+// ALX-compatible teachClass function
 export function teachClass(todayClass: Subjects): string {
   if (todayClass === "Math") {
     return "Teaching Math";
@@ -70,10 +70,6 @@ export function teachClass(todayClass: Subjects): string {
   }
   return "";
 }
-
-// -----------------
-// Example Usage
-// -----------------
 
 console.log(createEmployee(200).constructor.name); // Teacher
 console.log(createEmployee(1000).constructor.name); // Director
