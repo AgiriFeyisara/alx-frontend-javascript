@@ -58,11 +58,11 @@ export function executeWork(employee: Director | Teacher): string {
   }
 }
 
-// String literal type for classes
+// String literal type for subjects
 type Subjects = "Math" | "History";
 
 // teachClass function
-function teachClass(todayClass: Subjects): string {
+export function teachClass(todayClass: Subjects): string {
   if (todayClass === "Math") {
     return "Teaching Math";
   } else if (todayClass === "History") {
@@ -70,6 +70,10 @@ function teachClass(todayClass: Subjects): string {
   }
   return "";
 }
+
+// -----------------
+// Example Usage
+// -----------------
 
 console.log(createEmployee(200).constructor.name); // Teacher
 console.log(createEmployee(1000).constructor.name); // Director
