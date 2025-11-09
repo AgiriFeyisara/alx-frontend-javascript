@@ -49,5 +49,38 @@ function printTeacher({
   return `${firstName}. ${lastName}`;
 }
 
-// Example usage
 console.log(printTeacher({ firstName: "John", lastName: "Doe" }));
+
+// Define the constructor interface for StudentClass
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
+
+// Define the class interface for StudentClass
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+// Implement the class
+class StudentClass implements StudentClassInterface {
+  firstName: string;
+  lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+const student = new StudentClass("John", "Doe");
+console.log(student.displayName());
+console.log(student.workOnHomework());
