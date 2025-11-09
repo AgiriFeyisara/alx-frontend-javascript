@@ -5,10 +5,9 @@ interface Teacher {
   fullTimeEmployee: boolean;
   yearsOfExperience?: number;
   location: string;
-  [key: string]: any; // allows extra properties like contract
+  [key: string]: any;
 }
 
-// Example of Teacher object
 const teacher3: Teacher = {
   firstName: "John",
   lastName: "Doe",
@@ -19,12 +18,11 @@ const teacher3: Teacher = {
 
 console.log(teacher3);
 
-// Define the Director interface (singular!)
+// Define the Director interface
 interface Director extends Teacher {
   numberOfReports: number;
 }
 
-// Example of Director object
 const director1: Director = {
   firstName: "John",
   lastName: "Doe",
@@ -37,13 +35,19 @@ console.log(director1);
 
 // Define the interface for the printTeacher function
 interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
+  ({ firstName, lastName }: { firstName: string; lastName: string }): string;
 }
 
-// Implement the function using normal function declaration
-function printTeacher(firstName: string, lastName: string): string {
-  return `${firstName.charAt(0)}. ${lastName}`;
+// Implement the function using destructuring and exact return format
+function printTeacher({
+  firstName,
+  lastName,
+}: {
+  firstName: string;
+  lastName: string;
+}): string {
+  return `${firstName}. ${lastName}`;
 }
 
 // Example usage
-console.log(printTeacher("John", "Doe"));
+console.log(printTeacher({ firstName: "John", lastName: "Doe" }));
