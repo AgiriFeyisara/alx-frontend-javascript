@@ -58,11 +58,8 @@ export function executeWork(employee: Director | Teacher): string {
   }
 }
 
-// String literal type for subjects
-type Subjects = "Math" | "History";
-
-// ALX-compatible teachClass function
-export function teachClass(todayClass: Subjects): string {
+// ALX-compatible teachClass function with inline string literal type
+export function teachClass(todayClass: "Math" | "History"): string {
   if (todayClass === "Math") {
     return "Teaching Math";
   } else if (todayClass === "History") {
@@ -70,6 +67,10 @@ export function teachClass(todayClass: Subjects): string {
   }
   return "";
 }
+
+// -----------------
+// Example Usage
+// -----------------
 
 console.log(createEmployee(200).constructor.name); // Teacher
 console.log(createEmployee(1000).constructor.name); // Director
